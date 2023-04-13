@@ -20,7 +20,7 @@ public:
 
     const AString & GetBrokerageRootPaths() const { return m_BrokerageRootPaths; }
 protected:
-    void InitBrokerage();
+    void InitBrokerage(AString& buildBrokeragePath);
 
     Array<AString>      m_BrokerageRoots;
     AString             m_BrokerageRootPaths;

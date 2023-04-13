@@ -382,7 +382,7 @@ void FBuild::SaveDependencyGraph( MemoryStream & stream, const char* nodeGraphDB
         if ( workers.IsEmpty() )
         {
             // check for workers through brokerage or environment
-            m_WorkerBrokerage.FindWorkers( workers );
+            m_WorkerBrokerage.FindWorkers( workers, m_Options.m_BrokeragePath);
         }
 
         if ( workers.IsEmpty() )

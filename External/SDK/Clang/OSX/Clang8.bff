@@ -47,6 +47,7 @@ Compiler( 'Compiler-Clang8' )
                                     + ' -Wno-#pragma-messages'
                                     + ' -Wno-invalid-offsetof'      // we get the offset of members in non-POD types
                                     + ' -Wno-implicit-exception-spec-mismatch' // Fires on our new/delete operator (Clang bug?)
+									+ ' -Wno-deprecated-declarations' // sprintf
 
 
     .CompilerOptions                = ' -std=c++11 $CommonCompilerOptions$'

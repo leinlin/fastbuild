@@ -215,6 +215,7 @@ bool Args::Finalize( const AString & exe, const AString & nodeNameForError, Args
 
     // assign unquoted string (could be empty, and that's ok)
     out.Assign( start, end );
+	out.Replace('\\', '/');
 }
 
 //------------------------------------------------------------------------------

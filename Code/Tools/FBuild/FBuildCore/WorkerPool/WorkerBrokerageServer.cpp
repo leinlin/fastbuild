@@ -50,7 +50,10 @@ WorkerBrokerageServer::~WorkerBrokerageServer()
 void WorkerBrokerageServer::SetAvailability( bool available )
 {
     // Init the brokerage if not already
-    InitBrokerage();
+    {
+        AString brokeragePath;
+        InitBrokerage(brokeragePath);
+    }
 
     // ignore if brokerage not configured
     if ( m_BrokerageRoots.IsEmpty() )

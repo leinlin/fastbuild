@@ -102,6 +102,7 @@ public:
 
     uint32_t    m_NumWorkerThreads                  = 0; // True default detected in constructor
     AString     m_ConfigFile;
+    AString     m_BrokeragePath;
 
     inline uint32_t GetWorkingDirHash() const                   { return m_WorkingDirHash; }
     inline const AString & GetMainProcessMutexName() const      { return m_ProcessMutexName; }

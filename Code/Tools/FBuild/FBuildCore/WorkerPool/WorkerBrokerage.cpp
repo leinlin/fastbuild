@@ -23,7 +23,7 @@ WorkerBrokerage::WorkerBrokerage()
 
 // InitBrokerage
 //------------------------------------------------------------------------------
-void WorkerBrokerage::InitBrokerage()
+void WorkerBrokerage::InitBrokerage(AString& buildBrokeragePath)
 {
     PROFILE_FUNCTION;
 
@@ -37,7 +37,17 @@ void WorkerBrokerage::InitBrokerage()
 
     // root folder
     AStackString<> brokeragePath;
-    if ( Env::GetEnvVariable( "FASTBUILD_BROKERAGE_PATH", brokeragePath ) )
+    bool hasPath = false;
+    if (buildBrokeragePath.GetLength() > 0)
+    {
+        brokeragePath = buildBrokeragePath;
+        hasPath = true;
+    }
+    else
+    {
+        hasPath = Env::GetEnvVariable("FASTBUILD_BROKERAGE_PATH", brokeragePath);
+    }
+    if (hasPath)
     {
         // FASTBUILD_BROKERAGE_PATH can contain multiple paths separated by semi-colon. The worker will register itself into the first path only but
         // the additional paths are paths to additional broker roots allowed for finding remote workers (in order of priority)

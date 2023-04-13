@@ -25,7 +25,7 @@ WorkerBrokerageClient::~WorkerBrokerageClient() = default;
 
 // FindWorkers
 //------------------------------------------------------------------------------
-void WorkerBrokerageClient::FindWorkers( Array< AString > & outWorkerList )
+void WorkerBrokerageClient::FindWorkers( Array< AString > & outWorkerList, AString & brokeragePath)
 {
     PROFILE_FUNCTION;
 
@@ -45,7 +45,7 @@ void WorkerBrokerageClient::FindWorkers( Array< AString > & outWorkerList )
     // check for workers through brokerage
 
     // Init the brokerage
-    InitBrokerage();
+    InitBrokerage(brokeragePath);
     if ( m_BrokerageRoots.IsEmpty() )
     {
         FLOG_WARN( "No brokerage root; did you set FASTBUILD_BROKERAGE_PATH?" );
